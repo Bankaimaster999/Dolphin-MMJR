@@ -186,11 +186,11 @@
     <string name="internal_resolution">Internal Resolution</string>
     <string name="internal_resolution_description">A high resolution will improve visual quality a lot but is also quite heavy on performance and might cause glitches in certain games.</string>
     <string name="FSAA">Full-scene Anti-aliasing</string>
+    <string name="FSAA_description">Reduces the amount of aliasing caused by rasterizing 3D graphics. Heavily decreases emulation speed and sometimes causes issues.</string>
     <string name="load_hirestextures">Load Custom Textures</string>
     <string name="load_hirestextures_description">Put your texture pack folder inside the Textures folder. Example: (dolphin-mmjr/Load/Textures/GZ2E01)</string>
     <string name="cache_hirestextures">Prefetch Custom Textures</string>
     <string name="cache_hirestextures_description">Preload Custom Textures into RAM</string>
-    <string name="FSAA_description">Reduces the amount of aliasing caused by rasterizing 3D graphics. Heavily decreases emulation speed and sometimes causes issues.</string>
     <string name="anisotropic_filtering">Anisotropic Filtering</string>
     <string name="anisotropic_filtering_description">Enhances visual quality of textures that are at oblique viewing angles. Might cause issues in a small number of games.</string>
     <string name="post_processing_shader">Post-Processing Effect</string>
@@ -293,7 +293,8 @@
     <string name="emulation_screenshot">Take Screenshot</string>
     <string name="emulation_savestate">Save State</string>
     <string name="emulation_loadstate">Load State</string>
-    <string name="emulation_exit">Exit</string>
+    <string name="emulation_overlay_controls">Overlay Controls</string>
+    <string name="emulation_exit">Exit Emulation</string>
     <string name="emulation_slot1">Slot 1</string>
     <string name="emulation_slot2">Slot 2</string>
     <string name="emulation_slot3">Slot 3</string>

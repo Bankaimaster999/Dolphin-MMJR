@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dolphin_blue_dark"
+    tools:layout_width="250dp">
+
+    <TextView
+        android:id="@+id/text_game_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="The Legend of Zelda: The Wind Waker"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/layout_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/menu_emulation_screenshot"
+                android:text="@string/emulation_screenshot"
+                style="@style/InGameMenuOption"/>
+
+            <Button
+                android:id="@+id/menu_quicksave"
+                android:text="@string/emulation_quicksave"
+                style="@style/InGameMenuOption"/>
+
+            <Button
+                android:id="@+id/menu_overlay_controls"
+                android:text="@string/emulation_overlay_controls"
+                style="@style/InGameMenuOption"/>
+
+            <Button
+                android:id="@+id/menu_running_setting"
+                android:text="@string/preferences_settings"
+                style="@style/InGameMenuOption"/>
+
+            <Button
+                android:id="@+id/menu_settings_wiimote"
+                android:text="@string/emulation_refresh_wiimotes"
+                style="@style/InGameMenuOption"/>
+
+            <Button
+                android:id="@+id/menu_change_disc"
+                android:text="@string/emulation_change_disc"
+                style="@style/InGameMenuOption"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginHorizontal="1dp"
+        android:background="@drawable/line_divider" />
+
+    <Button
+        android:id="@+id/menu_emulation_exit"
+        android:text="@string/emulation_exit"
+        style="@style/InGameMenuOption"/>
+
+</LinearLayout>
