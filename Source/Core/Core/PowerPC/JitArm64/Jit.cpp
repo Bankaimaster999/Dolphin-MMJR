@@ -141,8 +141,8 @@ void JitArm64::Shutdown()
 void JitArm64::FallBackToInterpreter(UGeckoInstruction inst)
 {
   FlushCarry();
-  gpr.Flush(FlushMode::FLUSH_ALL, js.op);
-  fpr.Flush(FlushMode::FLUSH_ALL, js.op);
+  gpr.Flush(FlushMode::All, js.op);
+  fpr.Flush(FlushMode::All, js.op);
 
   if (js.op->opinfo->flags & FL_ENDBLOCK)
   {
@@ -195,8 +195,8 @@ void JitArm64::FallBackToInterpreter(UGeckoInstruction inst)
     SwitchToFarCode();
     SetJumpTarget(handleException);
 
-    gpr.Flush(FLUSH_MAINTAIN_STATE);
-    fpr.Flush(FLUSH_MAINTAIN_STATE);
+    gpr.Flush(FlushMode::MaintainState);
+    fpr.Flush(FlushMode::MaintainState);
 
     WriteExceptionExit(js.compilerPC);
 
@@ -208,8 +208,8 @@ void JitArm64::FallBackToInterpreter(UGeckoInstruction inst)
 
 void JitArm64::HLEFunction(UGeckoInstruction inst)
 {
-  gpr.Flush(FlushMode::FLUSH_ALL);
-  fpr.Flush(FlushMode::FLUSH_ALL);
+  gpr.Flush(FlushMode::All);
+  fpr.Flush(FlushMode::All);
 
   MOVI2R(W0, js.compilerPC);
   MOVI2R(W1, inst.hex);
@@ -705,8 +705,8 @@ void JitArm64::DoJit(u32 em_address, JitBlock* b, u32 nextPC)
       TST(W30, 23, 2);
       B(CC_EQ, done_here);
 
-      gpr.Flush(FLUSH_MAINTAIN_STATE);
-      fpr.Flush(FLUSH_MAINTAIN_STATE);
+      gpr.Flush(FlushMode::MaintainState);
+      fpr.Flush(FlushMode::MaintainState);
       WriteExceptionExit(js.compilerPC, true);
       SwitchToNearCode();
       SetJumpTarget(exit);
@@ -737,8 +737,8 @@ void JitArm64::DoJit(u32 em_address, JitBlock* b, u32 nextPC)
       B(CC_EQ, done_here);
       gpr.Unlock(WA);
 
-      gpr.Flush(FLUSH_MAINTAIN_STATE);
-      fpr.Flush(FLUSH_MAINTAIN_STATE);
+      gpr.Flush(FlushMode::MaintainState);
+      fpr.Flush(FlushMode::MaintainState);
       WriteExceptionExit(js.compilerPC, true);
       SwitchToNearCode();
       SetJumpTarget(NoExtException);
@@ -758,8 +758,8 @@ void JitArm64::DoJit(u32 em_address, JitBlock* b, u32 nextPC)
         SwitchToFarCode();
         SetJumpTarget(far);
 
-        gpr.Flush(FLUSH_MAINTAIN_STATE);
-        fpr.Flush(FLUSH_MAINTAIN_STATE);
+        gpr.Flush(FlushMode::MaintainState);
+        fpr.Flush(FlushMode::MaintainState);
 
         LDR(INDEX_UNSIGNED, WA, PPC_REG, PPCSTATE_OFF(Exceptions));
         ORR(WA, WA, 26, 0);  // EXCEPTION_FPU_UNAVAILABLE
@@ -791,8 +791,8 @@ void JitArm64::DoJit(u32 em_address, JitBlock* b, u32 nextPC)
 
   if (code_block.m_broken)
   {
-    gpr.Flush(FLUSH_ALL);
-    fpr.Flush(FLUSH_ALL);
+    gpr.Flush(FlushMode::All);
+    fpr.Flush(FlushMode::All);
     WriteExit(nextPC);
   }
 
