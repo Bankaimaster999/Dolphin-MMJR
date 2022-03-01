@@ -22,7 +22,6 @@ import com.nononsenseapps.filepicker.FilePickerFragment;
 
 import java.io.File;
 
-import org.dolphinemu.dolphinemu.NativeLibrary;
 import org.dolphinemu.dolphinemu.R;
 
 public final class CustomFilePickerActivity extends FilePickerActivity
@@ -39,8 +38,7 @@ public final class CustomFilePickerActivity extends FilePickerActivity
           final boolean singleClick)
   {
     mFilePickerFragment = new CustomFilePickerFragment();
-    // startPath is allowed to be null. In that case, default folder should be SD-card and not
-    // "/"
+    // startPath is allowed to be null. In that case, default folder should be SD-card and not "/"
     mFilePickerFragment.setArgs(startPath != null ?
                     startPath : Environment.getExternalStorageDirectory().getPath(),
             mode, allowMultiple, allowExistingFile, singleClick);
@@ -93,7 +91,7 @@ public final class CustomFilePickerActivity extends FilePickerActivity
     File path = new File(text);
     if (path.isDirectory())
     {
-      mFilePickerFragment.goToDir(path);
+      mFilePickerFragment.goToDir(path); // go to writted dir
     }
     else
     {
