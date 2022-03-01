@@ -208,12 +208,14 @@ public final class SettingsFragmentPresenter
       overclock));
     sl.add(new SliderSetting(SettingsFile.KEY_SPEED_LIMIT, Settings.SECTION_INI_CORE,
       R.string.speed_limit, 0, 200, "%", 100, speedLimit));
-		sl.add(new HeaderSetting(null, null,R.string.advanced_submenu2, 0));
+    sl.add(new HeaderSetting(null, null,R.string.advanced_submenu2, 0));
     sl.add(new CheckBoxSetting(SettingsFile.KEY_SYNC_ON_SKIP_IDLE, Settings.SECTION_INI_CORE,
       R.string.sync_on_skip_idle, R.string.sync_on_skip_idle_description, true,
       syncOnSkipIdle));
     //sl.add(new CheckBoxSetting(SettingsFile.KEY_MMU_EMULATION, Settings.SECTION_INI_CORE, R.string.mmu_emulation, R.string.mmu_emulation_description, false, mmuEmulation));
-    sl.add(new CheckBoxSetting(SettingsFile.KEY_FAST_DISC_SPEED, Settings.SECTION_INI_CORE, R.string.fast_disc_speed, R.string.fast_disc_speed_description, false, fastDiscSpeed));
+    sl.add(new CheckBoxSetting(SettingsFile.KEY_FAST_DISC_SPEED, Settings.SECTION_INI_CORE,
+      R.string.fast_disc_speed, R.string.fast_disc_speed_description, false,
+      fastDiscSpeed));
     sl.add(new CheckBoxSetting(SettingsFile.KEY_JIT_FOLLOW_BRANCH, Settings.SECTION_INI_CORE,
       R.string.jit_follow_branch, R.string.jit_follow_branch_description, true,
       followBranch));
@@ -412,8 +414,8 @@ public final class SettingsFragmentPresenter
     Setting fsaa = gfxSection.getSetting(SettingsFile.KEY_FSAA);
     Setting anisotropic = enhancementSection.getSetting(SettingsFile.KEY_ANISOTROPY);
     Setting shader = enhancementSection.getSetting(SettingsFile.KEY_POST_SHADER);
-    Setting HiresTextures = gfxSection.getSetting(SettingsFile.KEY_HIRESTEXTURES);
-		Setting CacheHiresTextures = gfxSection.getSetting(SettingsFile.KEY_CACHE_HIRESTEXTURES);
+    Setting hiresTextures = gfxSection.getSetting(SettingsFile.KEY_HIRES_TEXTURES);
+    Setting cacheHiresTextures = gfxSection.getSetting(SettingsFile.KEY_CACHE_HIRES_TEXTURES);
     Setting efbScaledCopy = hacksSection.getSetting(SettingsFile.KEY_SCALED_EFB);
     Setting perPixel = gfxSection.getSetting(SettingsFile.KEY_PER_PIXEL);
     Setting forceFilter = enhancementSection.getSetting(SettingsFile.KEY_FORCE_FILTERING);
@@ -427,12 +429,12 @@ public final class SettingsFragmentPresenter
     sl.add(new SingleChoiceSetting(SettingsFile.KEY_INTERNAL_RES, Settings.SECTION_GFX_SETTINGS,
       R.string.internal_resolution, R.string.internal_resolution_description,
       R.array.internalResolutionEntries, R.array.internalResolutionValues, 100, resolution));
-		sl.add(new HeaderSetting(null, null,R.string.HiresTextures_submenu, 0));
-		sl.add(new CheckBoxSetting(SettingsFile.KEY_HIRESTEXTURES, Settings.SECTION_GFX_SETTINGS,
-			R.string.load_hirestextures, R.string.load_hirestextures_description, false, HiresTextures));
-		sl.add(new CheckBoxSetting(SettingsFile.KEY_CACHE_HIRESTEXTURES, Settings.SECTION_GFX_SETTINGS,
-			R.string.cache_hirestextures, R.string.cache_hirestextures_description, false, CacheHiresTextures));
-		sl.add(new HeaderSetting(null, null,R.string.More_Enhancements_submenu, 0));
+    sl.add(new HeaderSetting(null, null,R.string.hires_textures_submenu, 0));
+    sl.add(new CheckBoxSetting(SettingsFile.KEY_HIRES_TEXTURES, Settings.SECTION_GFX_SETTINGS,
+            R.string.load_hires_textures, R.string.load_hires_textures_description, false, hiresTextures));
+    sl.add(new CheckBoxSetting(SettingsFile.KEY_CACHE_HIRES_TEXTURES, Settings.SECTION_GFX_SETTINGS,
+            R.string.cache_hires_textures, R.string.cache_hires_textures_description, false, cacheHiresTextures));
+    sl.add(new HeaderSetting(null, null,R.string.more_enhancements_submenu, 0));
     sl.add(new SingleChoiceSetting(SettingsFile.KEY_FSAA, Settings.SECTION_GFX_SETTINGS,
       R.string.FSAA, R.string.FSAA_description, R.array.FSAAEntries, R.array.FSAAValues, 1,
       fsaa));
@@ -557,6 +559,7 @@ public final class SettingsFragmentPresenter
     Setting gpuTextureDecoding = gfxSection.getSetting(SettingsFile.KEY_GPU_TEXTURE_DECODING);
     Setting xfbToTexture = hacksSection.getSetting(SettingsFile.KEY_XFB_TEXTURE);
     Setting immediateXfb = hacksSection.getSetting(SettingsFile.KEY_IMMEDIATE_XFB);
+		Setting skipDuplicateXfbs = hacksSection.getSetting(SettingsFile.KEY_SKIP_DUPLICATE_XFBS);
     Setting fastDepth = gfxSection.getSetting(SettingsFile.KEY_FAST_DEPTH);
     Setting tmemEmu = hacksSection.getSetting(SettingsFile.KEY_TMEM_CACHE_EMULATION);
 
@@ -587,6 +590,9 @@ public final class SettingsFragmentPresenter
       R.string.xfb_copy_method, R.string.xfb_copy_method_description, true, xfbToTexture));
     sl.add(new CheckBoxSetting(SettingsFile.KEY_IMMEDIATE_XFB, Settings.SECTION_GFX_HACKS,
       R.string.immediate_xfb, R.string.immediate_xfb_description, false, immediateXfb));
+		sl.add(new CheckBoxSetting(SettingsFile.KEY_SKIP_DUPLICATE_XFBS, Settings.SECTION_GFX_HACKS,
+			R.string.skip_duplicate_xfbs, R.string.skip_duplicate_xfbs_description, true,
+			skipDuplicateXfbs));
 
     sl.add(new HeaderSetting(null, null, R.string.other, 0));
     sl.add(new CheckBoxSetting(SettingsFile.KEY_FAST_DEPTH, Settings.SECTION_GFX_SETTINGS,

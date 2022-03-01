@@ -186,10 +186,10 @@
     <string name="internal_resolution">Internal Resolution</string>
     <string name="internal_resolution_description">A high resolution will improve visual quality a lot but is also quite heavy on performance and might cause glitches in certain games.</string>
     <string name="FSAA">Full-scene Anti-aliasing</string>
-    <string name="load_hirestextures">Load Custom Textures</string>
-    <string name="load_hirestextures_description">Put your texture pack folder inside the Textures folder. Example: (dolphin-mmjr/Load/Textures/GZ2E01)</string>
-    <string name="cache_hirestextures">Prefetch Custom Textures</string>
-    <string name="cache_hirestextures_description">Preload Custom Textures into RAM</string>
+    <string name="load_hires_textures">Load Custom Textures</string>
+    <string name="load_hires_textures_description">Put your texture pack folder inside the Textures folder. Example: (dolphin-mmjr/Load/Textures/GZ2E01)</string>
+    <string name="cache_hires_textures">Prefetch Custom Textures</string>
+    <string name="cache_hires_textures_description">Preload Custom Textures into RAM</string>
     <string name="FSAA_description">Reduces the amount of aliasing caused by rasterizing 3D graphics. Heavily decreases emulation speed and sometimes causes issues.</string>
     <string name="anisotropic_filtering">Anisotropic Filtering</string>
     <string name="anisotropic_filtering_description">Enhances visual quality of textures that are at oblique viewing angles. Might cause issues in a small number of games.</string>
@@ -238,6 +238,8 @@
     <string name="xfb_copy_method_description">Stores XFB Copies exclusively on the GPU, bypassing system memory. Causes graphical defects in a small number of games that need to readback from memory. If unsure, leave this checked.</string>
     <string name="immediate_xfb">Immediately Present XFB</string>
     <string name="immediate_xfb_description">Displays the XFB copies as soon as they are created, without waiting for scanout. Causes graphical defects in some games but reduces latency. If unsure, leave this unchecked.</string>
+    <string name="skip_duplicate_xfbs">Skip Presenting Duplicate Frames</string>
+    <string name="skip_duplicate_xfbs_description">Skips presentation of duplicate frames. This may improve performance on low-end devices, while making frame pacing less consistent. If unsure, leave this checked.</string>
     <string name="fast_depth_calculation">Fast Depth Calculation</string>
     <string name="fast_depth_calculation_description">Uses a less accurate algorithm to calculate depth values.</string>
     <string name="tmem_cache_emulation">TMEM Cache Emulation</string>
@@ -395,7 +397,7 @@
     <string name="yaw">Total Yaw</string>
     <string name="vertical_offset">Vertical Offset</string>
     <string name="advanced_submenu2">Advanced Settings</string>
-    <string name="HiresTextures_submenu">Custom Hires-Textures</string>
-    <string name="More_Enhancements_submenu">More Enhancement Settings</string>
+    <string name="hires_textures_submenu">Custom Hires-Textures</string>
+    <string name="more_enhancements_submenu">More Enhancement Settings</string>
 
 </resources>

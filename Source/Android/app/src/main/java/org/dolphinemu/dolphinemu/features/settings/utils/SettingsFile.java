@@ -77,8 +77,8 @@ public final class SettingsFile
   public static final String KEY_WIDE_SCREEN_HACK = "wideScreenHack";
   public static final String KEY_FORCE_24_BIT_COLOR = "ForceTrueColor";
   public static final String KEY_BACKEND_MULTITHREADING = "BackendMultithreading";
-  public static final String KEY_HIRESTEXTURES = "HiresTextures";
-	public static final String KEY_CACHE_HIRESTEXTURES = "CacheHiresTextures";
+  public static final String KEY_HIRES_TEXTURES = "HiresTextures";
+  public static final String KEY_CACHE_HIRES_TEXTURES = "CacheHiresTextures";
 
   public static final String KEY_SKIP_EFB = "EFBAccessEnable";
   public static final String KEY_IGNORE_FORMAT = "EFBEmulateFormatChanges";
@@ -89,7 +89,8 @@ public final class SettingsFile
   public static final String KEY_GPU_TEXTURE_DECODING = "EnableGPUTextureDecoding";
   public static final String KEY_XFB_TEXTURE = "XFBToTextureEnable";
   public static final String KEY_IMMEDIATE_XFB = "ImmediateXFBEnable";
-  public static final String KEY_FAST_DEPTH = "FastDepthCalc";
+	public static final String KEY_SKIP_DUPLICATE_XFBS = "SkipDuplicateXFBs";
+	public static final String KEY_FAST_DEPTH = "FastDepthCalc";
   public static final String KEY_TMEM_CACHE_EMULATION = "TMEMCacheEmulation";
 	public static final String KEY_ASPECT_RATIO = "AspectRatio";
 	public static final String KEY_DISPLAY_SCALE = "DisplayScale";
